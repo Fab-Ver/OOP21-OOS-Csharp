@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entity\" />
     <Folder Include="Factory\" />
     <Folder Include="Test\" />
   </ItemGroup>
