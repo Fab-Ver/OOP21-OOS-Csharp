@@ -23,26 +23,6 @@ namespace FabioVeroli.Factory
 
         public SizeF WorldDimensions { private get; set; }
 
-        public List<IDynamicEntity> CombineAll(SpawnLevel platformLevel, SpawnLevel obstacleLevel, SpawnLevel coinLevel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IDynamicEntity> CombineObstacleCoin(SpawnLevel obstacleLevel, SpawnLevel coinLevel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IDynamicEntity> CombinePlatformCoin(SpawnLevel platformLevel, SpawnLevel coinLevel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IDynamicEntity> CombinePlatformObstacle(SpawnLevel platformLevel, SpawnLevel obstacleLevel)
-        {
-            throw new NotImplementedException();
-        }
-
         public IDynamicEntity CreateCoin(SpawnLevel level)
         {
             SizeF size = new SizeF(COIN_WIDTH, COIN_HEIGHT);
@@ -66,6 +46,27 @@ namespace FabioVeroli.Factory
             float distance = WorldDimensions.Width - size.Width;
             return new Platform(coordinates, size, level, EntityType.PLATFORM, distance);
         }
+
+        public List<IDynamicEntity> CombineAll(SpawnLevel platformLevel, SpawnLevel obstacleLevel, SpawnLevel coinLevel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IDynamicEntity> CombineObstacleCoin(SpawnLevel obstacleLevel, SpawnLevel coinLevel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IDynamicEntity> CombinePlatformCoin(SpawnLevel platformLevel, SpawnLevel coinLevel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IDynamicEntity> CombinePlatformObstacle(SpawnLevel platformLevel, SpawnLevel obstacleLevel)
+        {
+            throw new NotImplementedException();
+        }
+
 
         private PointF GeneratePoint(SpawnLevel level, SizeF size, float distanceFactor)
         {
