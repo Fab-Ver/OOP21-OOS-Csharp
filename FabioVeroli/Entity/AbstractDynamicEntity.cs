@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using Commons.Geometry;
 
 namespace FabioVeroli.Entity
 {
@@ -8,8 +8,8 @@ namespace FabioVeroli.Entity
     public abstract class AbstractDynamicEntity : IDynamicEntity
     {
 
-        private readonly SizeF _dimensions;
-        private PointF _coordinates;
+        private readonly Size _dimensions;
+        private readonly Point _coordinates;
 
         /// <summary>
         /// 
@@ -19,7 +19,7 @@ namespace FabioVeroli.Entity
         /// <param name="level">The level on which the entity spawn.</param>
         /// <param name="type">The type identifying the entity.</param>
         /// <param name="distance">The distance after that next entity should spawn.</param>
-        internal AbstractDynamicEntity(PointF coordinates, SizeF dimensions, SpawnLevel level, EntityType type, double distance)
+        internal AbstractDynamicEntity(Point coordinates, Size dimensions, SpawnLevel level, EntityType type, double distance)
         {
             this._coordinates = coordinates;
             this._dimensions = dimensions;
@@ -39,7 +39,7 @@ namespace FabioVeroli.Entity
 
         public void UpdatePosition(float speedX) => _coordinates.X -= speedX;
 
-        public RectangleF GetBounds() => new RectangleF(_coordinates, _dimensions);
+        public Rectangle Bounds { get => new Rectangle(_coordinates.X, _coordinates.Y, _dimensions.Width, _dimensions.Height); }
 
         public bool IsOutofScreen() => _coordinates.X < -_dimensions.Width;
 

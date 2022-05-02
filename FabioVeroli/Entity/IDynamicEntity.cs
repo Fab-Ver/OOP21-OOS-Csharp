@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using Commons.Geometry;
 
 namespace FabioVeroli.Entity
 {
@@ -16,8 +16,7 @@ namespace FabioVeroli.Entity
         /// <summary>
         /// Returns the entity's Bounding Box.
         /// </summary>
-        /// <returns> a new RectangleF representing the coordinates and the dimension of the entity.</returns>
-        RectangleF GetBounds();
+        Rectangle Bounds { get;  }
 
         /// <summary>
         /// Check if the entity is out of the game screen.

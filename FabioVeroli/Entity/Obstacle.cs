@@ -1,5 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using Commons.Geometry;
+using System;
 
 namespace FabioVeroli.Entity
 {
@@ -16,7 +16,7 @@ namespace FabioVeroli.Entity
         /// <param name="level">The level on which the Obstacle spawn.</param>
         /// <param name="type">The type identifying the Obstacle.</param>
         /// <param name="distance">The distance after that next entity should spawn.</param>
-        public Obstacle(PointF coordinates, SizeF dimensions, SpawnLevel level, EntityType type, double distance) 
+        public Obstacle(Point coordinates, Size dimensions, SpawnLevel level, EntityType type, double distance)
                : base(coordinates, dimensions, level, type, distance)
         {
         }
