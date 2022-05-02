@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SaraCappelletti
+namespace Commons.Geometry
 {
     public class Rectangle
     {
