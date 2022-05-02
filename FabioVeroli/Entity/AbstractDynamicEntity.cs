@@ -2,19 +2,30 @@
 
 namespace FabioVeroli.Entity
 {
-    abstract class AbstractDynamicEntity : IDynamicEntity
+    /// <summary>
+    /// Abstract class defining behaviors common to all entity. 
+    /// </summary>
+    internal abstract class AbstractDynamicEntity : IDynamicEntity
     {
 
-        private PointF _coordinates;
         private readonly SizeF _dimensions;
+        private PointF _coordinates;
 
-        public AbstractDynamicEntity(PointF coordinates, SizeF dimensions, SpawnLevel level, EntityType type, double distance)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="coordinates">The coordinates of the entity on the screen.</param>
+        /// <param name="dimensions"> The size of the entity.</param>
+        /// <param name="level">The level on which the entity spawn.</param>
+        /// <param name="type">The type identifying the entity.</param>
+        /// <param name="distance">The distance after that next entity should spawn.</param>
+        internal AbstractDynamicEntity(PointF coordinates, SizeF dimensions, SpawnLevel level, EntityType type, double distance)
         {
             this._coordinates = coordinates;
             this._dimensions = dimensions;
+            this.Distance = distance;
             this.Level = level;
             this.Type = type;
-            this.Distance = distance;
             this.Hit = false;
         }
 
@@ -32,5 +43,15 @@ namespace FabioVeroli.Entity
 
         public bool IsOutofScreen() => _coordinates.X < -_dimensions.Width;
 
+        public void OnCollision()
+        {
+            this.Hit = true;
+            ActivateEffect();
+        }
+
+        /// <summary>
+        /// Defines the sequence of action that represents the entity's effect.
+        /// </summary>
+        protected abstract void ActivateEffect();
     }
 }
