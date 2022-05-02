@@ -48,7 +48,7 @@ namespace SaraCappelletti.PlayerModel
         /// </summary>
         private double HeadY => _y - MAIN_CHARACTER_HEIGHT;
         public Rectangle Bounds => new Rectangle(PLAYER_X, HeadY, MAIN_CHARACTER_WIDTH, MAIN_CHARACTER_HEIGHT);
-        private double LandHeight { get; set; } = LAND;
+        public double LandHeight { get; set; } = LAND;
         public JumpState JumpState { get; private set; } = JumpState.NOT_JUMPING;
         public int JumpCounter { get; private set; }
 
