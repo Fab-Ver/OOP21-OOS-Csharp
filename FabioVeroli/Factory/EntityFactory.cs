@@ -58,7 +58,13 @@ namespace FabioVeroli.Factory
         public List<IDynamicEntity> CombinePlatformObstacle(SpawnLevel platformLevel, SpawnLevel obstacleLevel) =>
             new List<IDynamicEntity> { CreateObstacle(obstacleLevel), CreatePlatform(platformLevel) };
 
-
+        /// <summary>
+        /// Generate the coordinates of the entity, according to given properties. 
+        /// </summary>
+        /// <param name="level">The level on which entity should spawn.</param>
+        /// <param name="size">The size of the entity.</param>
+        /// <param name="distanceFactor">Property of the entity that describe the multiplicative factor.</param>
+        /// <returns>A new Point identifying the coordinates of the entity. </returns>
         private Point GeneratePoint(SpawnLevel level, Size size, float distanceFactor)
         {
             float x = WorldDimensions.Width + size.Width * distanceFactor;
