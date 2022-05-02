@@ -2,7 +2,7 @@
 
 namespace SaraCappelletti
 {
-    internal class Rectangle
+    public class Rectangle
     {
         public Rectangle(double minX, double minY, double width, double height)
         {
@@ -19,7 +19,23 @@ namespace SaraCappelletti
         public double MaxX => MinX + Width;
         public double MaxY => MinY + Height;
 
-        public override bool Equals(object? obj)
+        public bool Intersects(Rectangle r)
+        {
+            {
+                if (MinX >= r.MaxX || r.MinX >= MaxX)
+                {
+                    return false;
+                }
+
+                if (MaxY >= r.MinY || r.MaxY >= MinY)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public override bool Equals(object obj)
         {
             return obj is Rectangle rectangle &&
                    MinX == rectangle.MinX &&
