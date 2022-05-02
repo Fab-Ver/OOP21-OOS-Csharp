@@ -5,7 +5,7 @@ namespace FabioVeroli.Entity
     /// <summary>
     /// Interface that describe an entity moving on the screen.
     /// </summary>
-    interface IDynamicEntity
+    internal interface IDynamicEntity
     {
         /// <summary>
         /// Update the entity position on the screen.
@@ -44,6 +44,11 @@ namespace FabioVeroli.Entity
         /// An entity' state, true if it was hit, false otherwise.
         /// </summary>
         bool Hit { get; set; }
+
+        /// <summary>
+        /// Method called when an entity collide with the player.
+        /// </summary>
+        void OnCollision();
 
     }
 }
