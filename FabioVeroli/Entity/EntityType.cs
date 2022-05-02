@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace FabioVeroli.Entity
 {
+    /// <summary>
+    /// Enumeration defining different types of entities.
+    /// </summary>
     public enum EntityType
     {
         [EntityAttr(4.7f)] OBSTACLE,
@@ -14,6 +17,10 @@ namespace FabioVeroli.Entity
         [EntityAttr(5.0f)] POWERUP
 
     }
+
+    /// <summary>
+    /// Custom attribute defining the distance factor for different type of entities. 
+    /// </summary>
     class EntityAttr : Attribute
     {
         internal EntityAttr(float distanceFactor)
@@ -24,6 +31,9 @@ namespace FabioVeroli.Entity
         public float DistanceFactor { get; private set; }
     }
 
+    /// <summary>
+    /// Class defining extension method for the enum EntityType. 
+    /// </summary>
     public static class Entities
     {
         public static float GetDistanceFactor(this EntityType et)
