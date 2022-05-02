@@ -29,7 +29,7 @@ namespace FabioVeroli.Test
         private static readonly float WORLD_HEIGHT = 440.0f;
 
 
-        private EntityFactory factory;
+        private IEntityFactory factory;
 
         [SetUp]
         public void SetUp() => this.factory = new EntityFactory(new SizeF(WORLD_WIDTH, WORLD_HEIGHT));
@@ -46,7 +46,7 @@ namespace FabioVeroli.Test
             Assert.AreEqual(COIN_EXPECTED_DISTANCE, coin.Distance);
             Assert.IsFalse(coin.Hit);
             /*Modify coin's state*/
-            coin.Hit = true;
+            coin.OnCollision();
             coin.UpdatePosition(WORLD_WIDTH * 2);
             /*Check the state modification*/
             Assert.IsTrue(coin.Hit);
@@ -65,7 +65,7 @@ namespace FabioVeroli.Test
             Assert.AreEqual(PLATFORM_EXPECTED_DISTANCE, platform.Distance);
             Assert.IsFalse(platform.Hit);
             /*Modify platform's state*/
-            platform.Hit = true;
+            platform.OnCollision();
             platform.UpdatePosition(WORLD_WIDTH * 2);
             /*Check the state modification*/
             Assert.IsTrue(platform.Hit);
@@ -85,7 +85,7 @@ namespace FabioVeroli.Test
             Assert.AreEqual(EntityType.OBSTACLE, obstacle.Type);
             Assert.IsFalse(obstacle.Hit);
             /*Modify obstacle's state*/
-            obstacle.Hit = true;
+            obstacle.OnCollision();
             obstacle.UpdatePosition(WORLD_WIDTH * 2);
             /*Check the state modification*/
             Assert.IsTrue(obstacle.Hit);
