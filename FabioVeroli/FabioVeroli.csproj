@@ -18,4 +18,8 @@
     <Folder Include="Test\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Commons.csproj" />
+  </ItemGroup>
+
 </Project>
