@@ -5,7 +5,7 @@ namespace FabioVeroli.Entity
     /// <summary>
     /// Interface that describe an entity moving on the screen.
     /// </summary>
-    internal interface IDynamicEntity
+    public interface IDynamicEntity
     {
         /// <summary>
         /// Update the entity position on the screen.

@@ -5,7 +5,7 @@ namespace FabioVeroli.Entity
     /// <summary>
     /// Abstract class defining behaviors common to all entity. 
     /// </summary>
-    internal abstract class AbstractDynamicEntity : IDynamicEntity
+    public abstract class AbstractDynamicEntity : IDynamicEntity
     {
 
         private readonly SizeF _dimensions;
