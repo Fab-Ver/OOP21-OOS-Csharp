@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace FabioVeroli.Factory
 {
-    class EntityFactory : IEntityFactory
+    public class EntityFactory : IEntityFactory
     {
         private static readonly float COIN_WIDTH = 35.0f;
         private static readonly float COIN_HEIGHT = 40.0f;
