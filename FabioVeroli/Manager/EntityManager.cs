@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace FabioVeroli.Manager
 {
-    public class EntityManager : IEntityManager
+    public sealed class EntityManager : IEntityManager
     {
         private static readonly float INITIAL_SPEEDX = 2.0f;
 
-        private List<IDynamicEntity> _entities;
+        private readonly List<IDynamicEntity> _entities;
         private readonly IEntityFactory _factory;
 
         public EntityManager(Size worldDimensions)
@@ -21,7 +21,7 @@ namespace FabioVeroli.Manager
             SpeedX = INITIAL_SPEEDX;
         }
 
-        public List<IDynamicEntity> GetEntities() => _entities;
+        public List<IDynamicEntity> Entities { get => _entities; }
         public float SpeedX { private get; set; }
 
         public void UpdateList()
@@ -41,8 +41,12 @@ namespace FabioVeroli.Manager
             
         }
 
+        /// <summary>
+        /// Add an entitties' configuration to the list. 
+        /// </summary>
         private void AddEntity()
         {
+            //Not a translation of Java code, code for this section was implemented for test purpose and simplified. 
             var last = _entities.Last();
             switch (last.Level)
             {
@@ -59,8 +63,6 @@ namespace FabioVeroli.Manager
                     break;
             }
         }
-
-
 
         /// <summary>
         /// Remove the filtered entities from the entities list.

@@ -1,10 +1,10 @@
-﻿using FabioVeroli.Entity;
+﻿using Commons.Geometry;
+using FabioVeroli.Entity;
 using System.Collections.Generic;
-using Commons.Geometry;
 
 namespace FabioVeroli.Factory
 {
-    public class EntityFactory : IEntityFactory
+    public sealed class EntityFactory : IEntityFactory
     {
         private static readonly float COIN_WIDTH = 35.0f;
         private static readonly float COIN_HEIGHT = 40.0f;
@@ -15,10 +15,7 @@ namespace FabioVeroli.Factory
         private static readonly float OBSTACLE_WIDTH = 43.0f;
         private static readonly float OBSTACLE_HEIGHT = 55.0f;
 
-        public EntityFactory(Size worldDimensions)
-        {
-            WorldDimensions = worldDimensions;
-        }
+        public EntityFactory(Size worldDimensions) => WorldDimensions = worldDimensions;
 
         public Size WorldDimensions { private get; set; }
 

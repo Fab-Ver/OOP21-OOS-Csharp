@@ -7,7 +7,6 @@ namespace FabioVeroli.Entity
     /// </summary>
     public abstract class AbstractDynamicEntity : IDynamicEntity
     {
-
         private readonly Size _dimensions;
         private readonly Point _coordinates;
 
@@ -19,14 +18,14 @@ namespace FabioVeroli.Entity
         /// <param name="level">The level on which the entity spawn.</param>
         /// <param name="type">The type identifying the entity.</param>
         /// <param name="distance">The distance after that next entity should spawn.</param>
-        internal AbstractDynamicEntity(Point coordinates, Size dimensions, SpawnLevel level, EntityType type, double distance)
+        public AbstractDynamicEntity(Point coordinates, Size dimensions, SpawnLevel level, EntityType type, double distance)
         {
-            this._coordinates = coordinates;
-            this._dimensions = dimensions;
-            this.Distance = distance;
-            this.Level = level;
-            this.Type = type;
-            this.Hit = false;
+            _coordinates = coordinates;
+            _dimensions = dimensions;
+            Distance = distance;
+            Level = level;
+            Type = type;
+            Hit = false;
         }
 
         public SpawnLevel Level { get; }
@@ -37,15 +36,15 @@ namespace FabioVeroli.Entity
 
         public bool Hit { get; set; }
 
-        public void UpdatePosition(float speedX) => _coordinates.X -= speedX;
-
         public Rectangle Bounds { get => new Rectangle(_coordinates.X, _coordinates.Y, _dimensions.Width, _dimensions.Height); }
+
+        public void UpdatePosition(float speedX) => _coordinates.X -= speedX;
 
         public bool IsOutofScreen() => _coordinates.X < -_dimensions.Width;
 
         public void OnCollision()
         {
-            this.Hit = true;
+            Hit = true;
             ActivateEffect();
         }
 

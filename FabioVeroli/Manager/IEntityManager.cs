@@ -8,11 +8,11 @@ namespace FabioVeroli.Manager
     /// </summary>
     public interface IEntityManager
     {
+
         /// <summary>
-        /// Get the entities currently on the game. 
+        /// Return a list containg the entities actually on the game. 
         /// </summary>
-        /// <returns>a list containing the entities that are actually on the game.</returns>
-        List<IDynamicEntity> GetEntities();
+        List<IDynamicEntity> Entities { get; }
 
         /// <summary>
         /// Speed property of the entities. 

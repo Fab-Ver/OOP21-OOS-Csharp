@@ -16,12 +16,9 @@ namespace FabioVeroli.Entity
     /// <summary>
     /// Custom attribute defining the Y coordinate for every level of the enum. 
     /// </summary>
-    class LevelAttr : Attribute
+    internal class LevelAttr : Attribute
     {
-        internal LevelAttr(float spawnY)
-        {
-            this.SpawnY = spawnY;
-        }
+        internal LevelAttr(float spawnY) => SpawnY = spawnY;
 
         public float SpawnY { get; private set; }
        

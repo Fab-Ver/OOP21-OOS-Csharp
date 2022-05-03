@@ -16,7 +16,7 @@ namespace FabioVeroli.Entity
         /// <summary>
         /// Returns the entity's Bounding Box.
         /// </summary>
-        Rectangle Bounds { get;  }
+        Rectangle Bounds { get; }
 
         /// <summary>
         /// Check if the entity is out of the game screen.
@@ -37,7 +37,7 @@ namespace FabioVeroli.Entity
         /// <summary>
         /// The distance after that next entity should spawn.
         /// </summary>
-        double Distance { get;  }
+        double Distance { get; }
 
         /// <summary>
         /// An entity' state, true if it was hit, false otherwise.

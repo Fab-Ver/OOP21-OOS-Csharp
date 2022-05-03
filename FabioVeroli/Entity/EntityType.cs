@@ -21,12 +21,9 @@ namespace FabioVeroli.Entity
     /// <summary>
     /// Custom attribute defining the distance factor for different type of entities. 
     /// </summary>
-    class EntityAttr : Attribute
+    internal class EntityAttr : Attribute
     {
-        internal EntityAttr(float distanceFactor)
-        {
-            this.DistanceFactor = distanceFactor;
-        }
+        internal EntityAttr(float distanceFactor) => DistanceFactor = distanceFactor;
 
         public float DistanceFactor { get; private set; }
     }

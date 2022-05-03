@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Commons.Geometry;
+using NUnit.Framework;
 using FabioVeroli.Entity;
 using FabioVeroli.Factory;
-using Commons.Geometry;
 
 namespace FabioVeroli.Test
 {   
@@ -29,16 +29,16 @@ namespace FabioVeroli.Test
         private static readonly float WORLD_HEIGHT = 440.0f;
 
 
-        private IEntityFactory factory;
+        private IEntityFactory _factory;
 
         [SetUp]
-        public void SetUp() => this.factory = new EntityFactory(new Size(WORLD_WIDTH, WORLD_HEIGHT));
+        public void SetUp() => _factory = new EntityFactory(new Size(WORLD_WIDTH, WORLD_HEIGHT));
 
         [Test]
         public void TestCoin()
         {
             /*Test coin's initial state and position*/
-            IDynamicEntity coin = factory.CreateCoin(SpawnLevel.ONE);
+            IDynamicEntity coin = _factory.CreateCoin(SpawnLevel.ONE);
             Assert.AreEqual(coin.Bounds, new Rectangle(COIN_EXPECTED_X, COIN_EXPECTED_Y, COIN_WIDTH, COIN_HEIGHT));
             Assert.IsFalse(coin.IsOutofScreen());
             Assert.AreEqual(SpawnLevel.ONE, coin.Level);
@@ -57,7 +57,7 @@ namespace FabioVeroli.Test
         public void TestPlatform()
         {
             /*Test platform's initial state and position*/
-            IDynamicEntity platform = factory.CreatePlatform(SpawnLevel.TWO);
+            IDynamicEntity platform = _factory.CreatePlatform(SpawnLevel.TWO);
             Assert.AreEqual(platform.Bounds, new Rectangle(PLATFORM_EXPECTED_X, PLATFORM_EXPECTED_Y, PLATFORM_WIDTH, PLATFORM_HEIGHT));
             Assert.IsFalse(platform.IsOutofScreen());
             Assert.AreEqual(SpawnLevel.TWO, platform.Level);
@@ -76,7 +76,7 @@ namespace FabioVeroli.Test
         public void TestObstacle()
         {
             /*Test obstacle's initial state and position*/
-            IDynamicEntity obstacle = factory.CreateObstacle(SpawnLevel.ZERO);
+            IDynamicEntity obstacle = _factory.CreateObstacle(SpawnLevel.ZERO);
 
             Assert.AreEqual(obstacle.Bounds, new Rectangle(OBSTACLE_EXPECTED_X, OBSTACLE_EXPECTED_Y, OBSTACLE_WIDTH, OBSTACLE_HEIGHT));
             Assert.AreEqual(obstacle.Distance, OBSTACLE_EXPECTED_DISTANCE);
