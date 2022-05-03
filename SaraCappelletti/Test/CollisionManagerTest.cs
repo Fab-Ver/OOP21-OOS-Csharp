@@ -1,10 +1,10 @@
-﻿using FabioVeroli.Entity;
+﻿using Commons.Geometry;
+using FabioVeroli.Entity;
 using FabioVeroli.Factory;
 using NUnit.Framework;
 using SaraCappelletti.CollisionModel;
 using SaraCappelletti.PlayerModel;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace SaraCappelletti.Test
 {
@@ -21,28 +21,28 @@ namespace SaraCappelletti.Test
         {
             _player = new Player();
             _manager = new CollisionManager();
-            _factory = new EntityFactory(new SizeF(854, 440));
+            _factory = new EntityFactory(new Size(854, 440));
             _objects = new List<IDynamicEntity>();
         }
 
         [Test]
-        public void testCollisionWithObstacle()
+        public void PlayerCollidesWith_AddObstacleandCollision_HitTrue()
         {
             int lives = _player.Lives;
             _objects.Clear();
             _objects.Add(_factory.CreateObstacle(SpawnLevel.ZERO));
             _objects[0].UpdatePosition(DISTANCE);
             _manager.PlayerCollidesWidth(_player, _objects);
-            Assert.True(_player.Lives < lives);
+            Assert.True(_objects[0].Hit);
         }
 
         [Test]
-        public void testCollisionWithPlatform()
+        public void Jump_CreatePlatform_JumpStateUP()
         {
            _objects.Clear();
            _objects.Add(_factory.CreatePlatform(SpawnLevel.ZERO));
            _player.Jump();
-           Assert.Equals(JumpState.UP, _player.JumpState);
+           Assert.AreEqual(JumpState.UP, _player.JumpState);
         }
 
     }

@@ -27,7 +27,7 @@ namespace Commons.Geometry
                     return false;
                 }
 
-                if (MaxY >= r.MinY || r.MaxY >= MinY)
+                if (MaxY <= r.MinY || r.MaxY <= MinY)
                 {
                     return false;
                 }

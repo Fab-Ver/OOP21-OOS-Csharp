@@ -1,4 +1,5 @@
-﻿using FabioVeroli.Entity;
+﻿using Commons.Geometry;
+using FabioVeroli.Entity;
 using SaraCappelletti.PlayerModel;
 using System.Collections.Generic;
 
@@ -10,7 +11,7 @@ namespace SaraCappelletti.CollisionModel
 
         private double _platformY;
 
-        public void PlayerCollidesWidth(Player pl, List<IDynamicEntity> objects)
+        public void PlayerCollidesWidth(IPlayer pl, List<IDynamicEntity> objects)
         {
             _platformY = Player.LAND;
             objects.ForEach(e =>
@@ -19,7 +20,7 @@ namespace SaraCappelletti.CollisionModel
                 {
                     if (IsPlayerAbove(pl, e))
                     {
-                        _platformY = e.GetBounds().Y;
+                        _platformY = e.Bounds.MinY;
                     }
                 }
                 else
@@ -29,7 +30,7 @@ namespace SaraCappelletti.CollisionModel
                     {
                         e.Hit = false;
                     }
-                    else if (e.GetBounds().Intersects(playerBounds) && !e.Hit)
+                    else if (e.Bounds.Intersects(playerBounds) && !e.Hit)
                     {
                         e.OnCollision();
                     }
@@ -38,26 +39,27 @@ namespace SaraCappelletti.CollisionModel
             pl.LandHeight = _platformY;
         }
 
-        /**
-         * 
-         * @param player the player that has to be above
-         * @param e the object that has to be below
-         * @return true if player is above e 
-         */
-        private bool IsPlayerAbove(IPlayer player, IDynamicEntity e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="player">The player that has to be above</param>
+        /// <param name="e">The object that has to be below</param>
+        /// <returns>True if player is above e</returns>
+        private static bool IsPlayerAbove(IPlayer player, IDynamicEntity e)
         {
-            return player.Bounds.MaxY <= e.GetBounds().Y + e.GetBounds().Height
-                    && player.Bounds.MaxX >= e.GetBounds().X + e.GetBounds().Width
-                    && player.Bounds.MinX <= e.GetBounds().X;
+            return player.Bounds.MaxY <= e.Bounds.MinY
+                    && player.Bounds.MaxX >= e.Bounds.MinX
+                    && player.Bounds.MinX <= e.Bounds.MaxX;
         }
 
-        /**
-         * 
-         * @param bounds initial bounds
-         * @param amount the amount to shrink each side
-         * @return the modified bounds
-         */
-        private Rectangle ShrinkBounds(Rectangle bounds, double amount)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bounds">Initial bounds</param>
+        /// <param name="amount">The amount to shrink each side</param>
+        /// <returns>The modified bounds</returns>
+
+        private static Rectangle ShrinkBounds(Rectangle bounds, double amount)
         {
             return new Rectangle(bounds.MinX + amount, bounds.MinY + amount,
                     bounds.Width - amount * 2, bounds.Height - amount * 2);

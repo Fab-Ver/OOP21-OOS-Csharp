@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Commons.Geometry;
+using NUnit.Framework;
 using SaraCappelletti.PlayerModel;
 
 namespace SaraCappelletti.Test

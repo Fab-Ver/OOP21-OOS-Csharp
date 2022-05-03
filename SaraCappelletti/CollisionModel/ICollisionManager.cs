@@ -11,6 +11,6 @@ namespace SaraCappelletti.CollisionModel
         /// </summary>
         /// <param name="pl">The Player</param>
         /// <param name="objects">The actual list of Entity</param>
-        void PlayerCollidesWidth(Player pl, List<IDynamicEntity> objects);
+        void PlayerCollidesWidth(IPlayer pl, List<IDynamicEntity> objects);
     }
 }

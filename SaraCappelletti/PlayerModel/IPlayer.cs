@@ -1,4 +1,6 @@
-﻿namespace SaraCappelletti.PlayerModel
+﻿using Commons.Geometry;
+
+namespace SaraCappelletti.PlayerModel
 {
     internal interface IPlayer
     {
@@ -6,6 +8,10 @@
         /// The bounds of the Player.
         /// </summary>
         Rectangle Bounds { get; }
+        /// <summary>
+        /// The Height of the land
+        /// </summary>
+        double LandHeight { get; set; }
         /// <summary>
         /// The Image of the Player.
         /// </summary>
