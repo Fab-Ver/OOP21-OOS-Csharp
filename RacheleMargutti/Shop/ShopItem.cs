@@ -1,5 +1,8 @@
 ﻿namespace RacheleMargutti.Shop
 {
+    /// <summary>
+    /// The class identifying the ShopItem sold in the shop.
+    /// </summary>
     class ShopItem : IShopItem
     {
         public ShopItem(string name, int price)

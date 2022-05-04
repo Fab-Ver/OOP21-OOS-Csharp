@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaraCappelletti", "SaraCapp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Commons\Commons.csproj", "{18B9A870-D2E4-4B5C-897D-AB70320DD027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavideTonelli", "DavideTonelli\DavideTonelli.csproj", "{22FFE39A-1E83-49EF-BB81-E90A16317D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DavideTonelli", "DavideTonelli\DavideTonelli.csproj", "{22FFE39A-1E83-49EF-BB81-E90A16317D58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,6 +2,9 @@
 
 namespace RacheleMargutti.Shop
 {
+    /// <summary>
+    /// The class identifying the MysteryBox item sold in the shop.
+    /// </summary>
     class MysteryBox
     {
         private static readonly Random _rand = new Random();
